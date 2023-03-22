@@ -1,7 +1,14 @@
 import prisma from "../db.js";
 import { comparePassword, createJWT, hashPassword } from "../modules/auth.js";
-
+import { authChecker } from "../modules/authChecker.js";
 export const signUp = async (req, res) => {
+  const isRepeated = await authChecker(req.body.email);
+
+  if (isRepeated) {
+    res.status(401);
+    res.json({ message: "Email Already Taken" });
+    return;
+  }
   const user = await prisma.user.create({
     data: {
       username: req.body.username,
@@ -16,18 +23,21 @@ export const signUp = async (req, res) => {
 };
 
 export const signIn = async (req, res) => {
-  console.log(req.body.username);
+  console.log(req.body);
   const user = await prisma.user.findUnique({
     where: {
-      username: req.body.username,
+      email: req.body.email,
     },
   });
-
+  if (!user) {
+    res.status(401);
+    res.json({ message: "Incorrect user email" });
+    return;
+  }
   const isValid = await comparePassword(req.body.password, user.password);
-
   if (!isValid) {
     res.status(401);
-    res.json({ message: "NOPE" });
+    res.json({ message: "Incorrect Password" });
     return;
   }
   const token = createJWT(user);
