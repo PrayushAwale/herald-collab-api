@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { signIn, signUp } from "./handlers/user.js";
+import router from "./route.js";
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/signup", signUp);
 app.post("/signin", signIn);
+app.use("/order", router);
 
 export default app;
