@@ -17,12 +17,12 @@ export const getOrder = async (req, res) => {
 };
 
 export const getBilling = async (req, res) => {
-  const getOrders = await prisma.order.findMany({
+  const getBillings = await prisma.order.findMany({
     where: {
       isCompleted: true,
     },
   });
-  res.json({ orders: getOrders });
+  res.json({ orders: getBillings });
 };
 
 export const updateOrder = async (req, res) => {
