@@ -13,6 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/signup", signUp);
 app.post("/signin", signIn);
+
 app.use("/order", router);
+app.use("/employee", router);
+app.use("/fooditem", router);
+
+app.use("/file", router);
 
 export default app;

@@ -1,32 +1,32 @@
 import prisma from "../db.js";
 
 export const createOrder = async (req, res) => {
-  const placeOrder = await prisma.order.createMany({
+  const data = await prisma.order.createMany({
     data: req.body,
   });
-  res.json({ data: placeOrder });
+  res.json({ data });
 };
 
 export const getOrder = async (req, res) => {
-  const getOrders = await prisma.order.findMany({
+  const data = await prisma.order.findMany({
     where: {
       isCompleted: false,
     },
   });
-  res.json({ orders: getOrders });
+  res.json({ data });
 };
 
 export const getBilling = async (req, res) => {
-  const getBillings = await prisma.order.findMany({
+  const data = await prisma.order.findMany({
     where: {
       isCompleted: true,
     },
   });
-  res.json({ orders: getBillings });
+  res.json({ data });
 };
 
 export const updateOrder = async (req, res) => {
-  const update = await prisma.order.update({
+  const data = await prisma.order.update({
     where: {
       id: req.body.id,
     },
@@ -34,5 +34,5 @@ export const updateOrder = async (req, res) => {
       isCompleted: req.body.isCompleted,
     },
   });
-  res.json({ message: update });
+  res.json({ data });
 };
