@@ -16,7 +16,6 @@ import {
 import {
   createFoodItem,
   updateFoodItem,
-  getFoodItem,
   getFoodItems,
   deleteFoodItem,
 } from "./handlers/fooditem.js";
@@ -36,9 +35,9 @@ router.put("/updateemployee", updateEmployee);
 
 router.post("/createfooditem", createFoodItem);
 router.put("/updatefooditem", updateFoodItem);
-router.get("/getfooditem", getFoodItem);
-router.get("/getfooditems", getFoodItems);
+router.get("/getfooditems/:id", getFoodItems);
 router.delete("/deletefooditem", deleteFoodItem);
+// router.get("/getfooditem", getFoodItem);
 
 router.post("/newbill", createBill);
 
