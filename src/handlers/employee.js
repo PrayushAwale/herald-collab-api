@@ -17,7 +17,11 @@ export const getEmployee = async (req, res) => {
 };
 
 export const getEmployees = async (req, res) => {
-  const data = await prisma.employee.findMany();
+  const data = await prisma.employee.findMany({
+    where: {
+      adminid: req.params.id,
+    },
+  });
   return res.json({ data });
 };
 

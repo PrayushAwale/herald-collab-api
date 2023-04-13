@@ -29,7 +29,7 @@ router.get("/getBilling", getBilling);
 
 router.post("/createemployee", createEmployee);
 router.get("/getemployee", getEmployee);
-router.get("/getemployees", getEmployees);
+router.get("/getemployees/:id", getEmployees);
 router.delete("/deleteemployee", deleteEmployee);
 router.put("/updateemployee", updateEmployee);
 
