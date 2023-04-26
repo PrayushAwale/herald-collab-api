@@ -29,7 +29,7 @@ export const getFoodItems = async (req, res) => {
 export const deleteFoodItem = async (req, res) => {
   const data = await prisma.food_items.delete({
     where: {
-      id: req.body.id,
+      id: req.params.id,
     },
   });
   return res.json({ data });

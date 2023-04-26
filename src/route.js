@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createBill } from "./handlers/billing.js";
+// import { createBill } from "./handlers/billing.js";
 import {
   createEmployee,
   deleteEmployee,
@@ -8,10 +8,13 @@ import {
   updateEmployee,
 } from "./handlers/employee.js";
 import {
+  createBill,
   createOrder,
   getBilling,
   getOrder,
+  getUnserved,
   updateOrder,
+  updateServe,
 } from "./handlers/order.js";
 import {
   createFoodItem,
@@ -23,9 +26,12 @@ import {
 const router = Router();
 
 router.post("/placeorder", createOrder);
-router.get("/getorder", getOrder);
+router.get("/getorder/:id", getOrder);
 router.put("/updateorder", updateOrder);
-router.get("/getBilling", getBilling);
+router.put("/updateServe", updateServe);
+router.put("/createBill", createBill);
+router.get("/getBilling/:id", getBilling);
+router.get("/unserved/:id", getUnserved);
 
 router.post("/createemployee", createEmployee);
 router.get("/getemployee", getEmployee);
@@ -36,9 +42,9 @@ router.put("/updateemployee", updateEmployee);
 router.post("/createfooditem", createFoodItem);
 router.put("/updatefooditem", updateFoodItem);
 router.get("/getfooditems/:id", getFoodItems);
-router.delete("/deletefooditem", deleteFoodItem);
+router.delete("/deletefooditem/:id", deleteFoodItem);
 // router.get("/getfooditem", getFoodItem);
 
-router.post("/newbill", createBill);
+// router.post("/newbill", createBill);
 
 export default router;

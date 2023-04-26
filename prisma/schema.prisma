@@ -20,6 +20,7 @@ model User {
   createdAt       DateTime     @default(now())
   Employee        Employee[]
   Foods           Food_items[]
+  Order           Order[]
 }
 
 model Order {
@@ -31,6 +32,10 @@ model Order {
   table_number Int
   price        Float
   isCompleted  Boolean  @default(false)
+  isServed     Boolean  @default(false)
+  isBilled     Boolean  @default(false)
+  adminref     User     @relation(fields: [adminid], references: [id])
+  adminid      String
 }
 
 model Food_items {
