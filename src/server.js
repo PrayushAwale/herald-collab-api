@@ -4,6 +4,7 @@ import cors from "cors";
 import { signIn, signUp } from "./handlers/user.js";
 import router from "./route.js";
 import { signInEmployee } from "./handlers/employeeAuth.js";
+import { getTotalEmployees, getTotalFoodItems } from "./handlers/getTotal.js";
 
 const app = express();
 
@@ -11,9 +12,12 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
+
 // For admin
 app.post("/signup", signUp);
 app.post("/signin", signIn);
+app.get("/getTotalEmployees/:id", getTotalEmployees);
+app.get("/getTotalFoodItems/:id", getTotalFoodItems);
 // For emloyee
 app.post("/signinemployee", signInEmployee);
 
