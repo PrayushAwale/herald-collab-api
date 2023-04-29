@@ -4,7 +4,11 @@ import cors from "cors";
 import { signIn, signUp } from "./handlers/user.js";
 import router from "./route.js";
 import { signInEmployee } from "./handlers/employeeAuth.js";
-import { getTotalEmployees, getTotalFoodItems } from "./handlers/getTotal.js";
+import {
+  getTotalEmployees,
+  getTotalFoodItems,
+  getTotalSales,
+} from "./handlers/getTotal.js";
 
 const app = express();
 
@@ -18,6 +22,7 @@ app.post("/signup", signUp);
 app.post("/signin", signIn);
 app.get("/getTotalEmployees/:id", getTotalEmployees);
 app.get("/getTotalFoodItems/:id", getTotalFoodItems);
+app.get("/getTotalSales/:id", getTotalSales);
 // For emloyee
 app.post("/signinemployee", signInEmployee);
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-// import { createBill } from "./handlers/billing.js";
+
 import {
   createEmployee,
   deleteEmployee,
@@ -15,6 +15,7 @@ import {
   getUnserved,
   updateOrder,
   updateServe,
+  getComplete,
 } from "./handlers/order.js";
 import {
   createFoodItem,
@@ -32,19 +33,17 @@ router.put("/updateServe", updateServe);
 router.put("/createBill", createBill);
 router.get("/getBilling/:id", getBilling);
 router.get("/unserved/:id", getUnserved);
+router.get("/complete/:id", getComplete);
 
 router.post("/createemployee", createEmployee);
 router.get("/getemployee", getEmployee);
 router.get("/getemployees/:id", getEmployees);
-router.delete("/deleteemployee", deleteEmployee);
+router.delete("/deleteemployee/:id", deleteEmployee);
 router.put("/updateemployee", updateEmployee);
 
 router.post("/createfooditem", createFoodItem);
 router.put("/updatefooditem", updateFoodItem);
 router.get("/getfooditems/:id", getFoodItems);
 router.delete("/deletefooditem/:id", deleteFoodItem);
-// router.get("/getfooditem", getFoodItem);
-
-// router.post("/newbill", createBill);
 
 export default router;
