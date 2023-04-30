@@ -37,7 +37,6 @@ export const getTotalSales = async (req, res) => {
         isCompleted: true,
       },
     });
-
     res.json({ data: count });
   } catch (error) {
     console.log(error.message);

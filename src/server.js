@@ -23,9 +23,11 @@ app.post("/signin", signIn);
 app.get("/getTotalEmployees/:id", getTotalEmployees);
 app.get("/getTotalFoodItems/:id", getTotalFoodItems);
 app.get("/getTotalSales/:id", getTotalSales);
+
 // For emloyee
 app.post("/signinemployee", signInEmployee);
 
+//For Order
 app.use("/order", router);
 app.use("/employee", router);
 app.use("/fooditem", router);
