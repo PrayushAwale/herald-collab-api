@@ -16,6 +16,7 @@ import {
   updateOrder,
   updateServe,
   getComplete,
+  createBillWithTxt,
 } from "./handlers/order.js";
 import {
   createFoodItem,
@@ -31,6 +32,7 @@ router.get("/getorder/:id", getOrder);
 router.put("/updateorder", updateOrder);
 router.put("/updateServe", updateServe);
 router.put("/createBill", createBill);
+router.put("/createBillWithTxt", createBillWithTxt);
 router.get("/getBilling/:id", getBilling);
 router.get("/unserved/:id", getUnserved);
 router.get("/complete/:id", getComplete);

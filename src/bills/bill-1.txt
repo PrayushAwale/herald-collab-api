@@ -1,0 +1,6 @@
+Bill for:
+Table Number: 1
+Create at Mon May 01 2023 11:25:27 GMT+0545 (Nepal Time)
+Bill for:
+Pizza,Bhaat,Pizza,Pizza,Bhaat
+Total = 769
